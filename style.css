@@ -1,0 +1,77 @@
+/* Animation for winning cells */
+@keyframes pulse-win {
+    0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+.winning-cell {
+    animation: pulse-win 1.5s infinite;
+    position: relative;
+    z-index: 10;
+}
+
+/* Modal transition */
+#win-modal {
+    transition: opacity 0.3s ease;
+}
+
+/* Platform hover effect */
+.platform:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .platform {
+        padding: 0.5rem;
+    }
+    .cell {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid.grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    .cell {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Player-specific colors */
+.player-x {
+    color: #3b82f6;
+}
+
+.player-o {
+    color: #ef4444;
+}
+
+/* Turn indicator animation */
+@keyframes pulse-turn {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.turn-highlight {
+    animation: pulse-turn 1.5s infinite;
+}
+
+/* Game board styling */
+.platform {
+    transition: all 0.3s ease;
+}
+
+.platform.active {
+    border: 2px solid rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
